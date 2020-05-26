@@ -33,8 +33,6 @@ Then open your browser and visit `localhost:8888`
 
 ## Generate sentence
   * Run `test.py`.
-
-<img src="./network_structure.jpg" alt="transformer" align=center />
   
 
 
