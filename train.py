@@ -126,6 +126,8 @@ def main():
             optimizer.step()
 
             if global_step % hp.save_step == 0:
+                if not os.path.exists(hp.checkpoint_path):
+                    os.mkdir(hp.checkpoint_path)
                 t.save({'model': m.state_dict(),
                         'optimizer': optimizer.state_dict()},
                        os.path.join(hp.checkpoint_path, 'checkpoint_transformer_%d.pth.tar' % global_step))
