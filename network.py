@@ -25,7 +25,7 @@ class Encoder(nn.Module):
 
         if pretrain_embedding_model:
             self.embed = nnn.Embedding.from_pretrained(
-                pretrain_embedding_model)
+                pretrain_embedding_model, freeze=True)
         else:
             self.embed = nn.Embedding(
                 len(vocab), embedding_size, padding_idx=0)
@@ -85,7 +85,7 @@ class Decoder(nn.Module):
 
         if pretrain_embedding_model:
             self.embed = nnn.Embedding.from_pretrained(
-                pretrain_embedding_model)
+                pretrain_embedding_model, freeze=True)
         else:
             self.embed = nn.Embedding(
                 len(vocab), hp.embedding_size, padding_idx=0)
