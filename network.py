@@ -24,7 +24,7 @@ class Encoder(nn.Module):
         super(Encoder, self).__init__()
 
         if pretrain_embedding_model:
-            self.embed = nnn.Embedding.from_pretrained(
+            self.embed = nn.Embedding.from_pretrained(
                 pretrain_embedding_model, freeze=True)
         else:
             self.embed = nn.Embedding(
@@ -84,11 +84,11 @@ class Decoder(nn.Module):
         super(Decoder, self).__init__()
 
         if pretrain_embedding_model:
-            self.embed = nnn.Embedding.from_pretrained(
+            self.embed = nn.Embedding.from_pretrained(
                 pretrain_embedding_model, freeze=True)
         else:
             self.embed = nn.Embedding(
-                len(vocab), hp.embedding_size, padding_idx=0)
+                len(vocab), embedding_size, padding_idx=0)
 
         # the max length of sequence should be less than 1024
         self.pos_emb = nn.Embedding.from_pretrained(get_sinusoid_encoding_table(1024, embedding_size, padding_idx=0),
